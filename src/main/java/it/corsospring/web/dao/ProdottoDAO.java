@@ -4,5 +4,6 @@ import it.corsospring.web.dao.model.Prodotto;
 
 public interface ProdottoDAO {
 
-    public void Prodotto(Prodotto prodotto);
+    public void add(Prodotto prodotto);
+    public void update(Prodotto prodotto);
 }

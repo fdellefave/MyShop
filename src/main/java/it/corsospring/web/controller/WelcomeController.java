@@ -1,6 +1,7 @@
 package it.corsospring.web.controller;
 
-import it.corsospring.web.model.Prodotto;
+import it.corsospring.web.dao.model.Categoria;
+import it.corsospring.web.dao.model.Prodotto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +28,12 @@ public class WelcomeController {
     public String demoProdotto(ModelMap model){
 
         Prodotto p = new Prodotto();
+        Categoria c = new Categoria();
 
-        p.setId(123L);
-        p.setCategoria("TV");
+        p.setIdProdotto(10);
+        p.setCategoria(c);
         p.setNome("Sony 24");
-        p.setPrezzo(1500L);
+        p.setPrezzoUnitario(350);
 
         model.addAttribute("prodotto",p);
 

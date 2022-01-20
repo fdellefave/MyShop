@@ -5,5 +5,7 @@ import it.corsospring.web.dao.model.Categoria;
 public interface CategoriaDAO {
 
     public void add(Categoria categoria);
+    public void update(Categoria categoria);
+
 
 }

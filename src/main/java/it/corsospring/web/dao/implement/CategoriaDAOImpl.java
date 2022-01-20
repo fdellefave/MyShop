@@ -3,7 +3,6 @@ package it.corsospring.web.dao.implement;
 
 import it.corsospring.web.dao.CategoriaDAO;
 import it.corsospring.web.dao.model.Categoria;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -21,9 +20,21 @@ public class CategoriaDAOImpl implements CategoriaDAO {
         String sql = "INSERT INTO categoria(nome,descrizione,id_categoria_padre) VALUES(?,?,?)";
 
         int categoriaPadre = 0;
-        if(categoria.getCategoriaPadre()!=null){
+        if (categoria.getCategoriaPadre() != null) {
             categoriaPadre = categoria.getCategoriaPadre().getIdCategoria();
         }
-        conn.update(sql,categoria.getNome(),categoria.getDescrizione(),categoriaPadre);
+        conn.update(sql, categoria.getNome(), categoria.getDescrizione(), categoriaPadre);
+    }
+
+
+    public void update(Categoria categoria) {
+        String sql = "UPDATE categoria SET nome=?, descrizione=?, id_categoria_padre=? WHERE id_categoria=?";
+
+        int categoriaPadre = 0;
+        if (categoria.getCategoriaPadre() != null) {
+            categoriaPadre = categoria.getCategoriaPadre().getIdCategoria();
+        }
+        conn.update(sql, categoria.getNome(), categoria.getDescrizione(), categoriaPadre, categoria.getIdCategoria());
+
     }
 }

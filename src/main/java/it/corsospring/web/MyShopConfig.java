@@ -41,13 +41,14 @@ public class MyShopConfig {
         return config;
     }
 
+
     @Bean
     public DataSource getDBconnection() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("org.mariadb.jdbc.Driver");
         ds.setUsername("root");
         ds.setPassword("root");
-        ds.setUrl("jdbc:mariadb://localhost:3306/corso_spring");
+        ds.setUrl("jdbc:mariadb://localhost:3307/corso_spring");
 
         return ds;
     }
