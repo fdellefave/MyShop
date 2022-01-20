@@ -28,4 +28,18 @@ public class ClienteDAOImpl implements ClienteDAO {
         conn.update(sql, c.getNome(), c.getCognome(), c.getCodiceFiscale(), c.getEmail(), c.getUsername(), c.getPassword(), c.getIdCliente());
 
     }
+
+    public void delete(int idCliente){
+        String sql = "DELETE FROM cliente WHERE id_cliente=?";
+
+        conn.update(sql,idCliente);
+    }
+
+    @Override
+    public int count() {
+        String sql = "SELECT count(id_cliente) FROM cliente";
+
+        return conn.queryForObject(sql,Integer.class);
+    }
 }
+

@@ -4,6 +4,13 @@ import it.corsospring.web.dao.model.Prodotto;
 
 public interface ProdottoDAO {
 
-    public void add(Prodotto prodotto);
-    public void update(Prodotto prodotto);
+    void add(Prodotto prodotto);
+
+    void update(Prodotto prodotto);
+
+    void delete(int idProdotto);
+
+    int count();
+
+    int countcountByIdCategoria(String idCategoria);
 }
